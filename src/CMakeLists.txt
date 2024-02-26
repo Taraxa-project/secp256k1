@@ -119,6 +119,7 @@ if(SECP256K1_INSTALL)
   set(${PROJECT_NAME}_headers
     "${PROJECT_SOURCE_DIR}/include/secp256k1.h"
     "${PROJECT_SOURCE_DIR}/include/secp256k1_preallocated.h"
+    "${PROJECT_SOURCE_DIR}/include/secp256k1_sha256.h"
   )
   if(SECP256K1_ENABLE_MODULE_ECDH)
     list(APPEND ${PROJECT_NAME}_headers "${PROJECT_SOURCE_DIR}/include/secp256k1_ecdh.h")

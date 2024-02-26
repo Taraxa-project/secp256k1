@@ -56,6 +56,21 @@ SECP256K1_API SECP256K1_WARN_UNUSED_RESULT int secp256k1_ecdh(
   void *data
 ) SECP256K1_ARG_NONNULL(1) SECP256K1_ARG_NONNULL(2) SECP256K1_ARG_NONNULL(3) SECP256K1_ARG_NONNULL(4);
 
+/** Compute an EC Diffie-Hellman secret in constant time
+ *
+ *  Returns: 1: exponentiation was successful
+ *           0: scalar was invalid (zero or overflow) or hashfp returned 0
+ *  Args:    ctx:        pointer to a context object.
+ *  Out:     output:     pointer to an array to be filled by hashfp.
+ *  In:      pubkey:     pointer to a secp256k1_pubkey containing an initialized public key.
+ *           seckey:     a 32-byte scalar with which to multiply the point.
+ */
+SECP256K1_API SECP256K1_WARN_UNUSED_RESULT int secp256k1_ecdh_raw(const secp256k1_context *ctx, unsigned char *output,
+                                                                  const secp256k1_pubkey *pubkey,
+                                                                  const unsigned char *seckey) SECP256K1_ARG_NONNULL(1)
+    SECP256K1_ARG_NONNULL(2) SECP256K1_ARG_NONNULL(3) SECP256K1_ARG_NONNULL(4);
+
+
 #ifdef __cplusplus
 }
 #endif
